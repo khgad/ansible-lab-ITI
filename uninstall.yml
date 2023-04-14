@@ -1,0 +1,10 @@
+- name: registry playbook
+  hosts: all
+  tasks:
+    - name: install nginx
+      ansible.builtin.package:
+        name: nginx
+        state: absent
+      register: install_nginx
+
+      

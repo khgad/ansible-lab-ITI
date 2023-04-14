@@ -1,0 +1,6 @@
+package_name: nginx
+machine_name: ec2 worker
+files_list:
+  #  - index.html
+  - style.css
+  - script.js

@@ -1,0 +1,14 @@
+- name: install nginx
+  ansible.builtin.package:
+    name: "{{ package_name  }}"
+    state: present
+  register: install_nginx
+  notify: copy files to machines
+
+- name: copy template file
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    owner: ubuntu
+    group: ubuntu
+  notify: restart nginx

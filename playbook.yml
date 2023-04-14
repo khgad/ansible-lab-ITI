@@ -1,0 +1,6 @@
+- name: main playbook
+  hosts: all
+  gather_facts: true
+  roles:
+    - web
+

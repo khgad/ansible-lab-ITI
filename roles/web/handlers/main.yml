@@ -1,0 +1,14 @@
+- name: copy files to machines
+  copy:
+    src: "{{ item }}"
+    dest: /var/www/html
+  loop: "{{ files_list  }}"
+  when: install_nginx.changed == true
+  register: copy_result
+  notify: restart nginx
+
+- name: restart nginx
+  service:
+    name: "{{ package_name }}"
+    state: started 
+  when: copy_result.changed == true
